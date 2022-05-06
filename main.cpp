@@ -15,10 +15,15 @@ using namespace assignment;
 
 int main() {
 
-  std::vector<int> arr = {-39, -79};
-
+  std::vector<int> arr = {-39, -79, 66, 34, 8};
   InsertionSort sort;
   sort.Sort(arr);
+  std::cout << arr[0] << endl;
+  std::cout << arr[1] << endl;
+  std::cout << arr[2] << endl;
+  std::cout << arr[3] << endl;
+  std::cout << arr[4] << endl;
+
 
   return 0;
 }
