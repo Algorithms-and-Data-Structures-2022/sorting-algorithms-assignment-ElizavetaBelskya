@@ -19,12 +19,22 @@ namespace assignment {
 
     // вычисляем индекс середины заданной области
     const int middle = middle_of(start, stop);
-
+    int index;
     // поиск медианы среди трех элементов по индексам start, middle и stop
-
-    // Здесь должна быть ваша реализация ...
-
-    return -1 /* здесь что-то не так ... */;
+    if (arr[start] < arr[middle] < arr[stop]) {
+      index = middle;
+    } else if (arr[middle] < arr[start] < arr[stop]) {
+      index = start;
+    } else if (arr[middle] < arr[stop] < arr[start]) {
+      index = stop;
+    } else if (arr[stop] < arr[middle] < arr[start]) {
+      index = middle;
+    } else if (arr[stop] < arr[start] < arr[middle]) {
+      index = start;
+    } else if (arr[start] < arr[stop] < arr[middle]) {
+      index = stop;
+    }
+    return index;
   }
 
   int partition(std::vector<int>& arr, int start, int stop, int pivot) {
@@ -50,9 +60,9 @@ namespace assignment {
 
     // вычисление индекса опорного элемента и перемещение элементов по правилу разбиения
     for (int index = start; index < stop; index++) {
-
       if (arr[index] < pivot_value) {
-        // Напишите здесь ваш код ...
+        std::swap(arr[index], arr[curr_pivot_index]);
+        curr_pivot_index++;
       }
     }
 
@@ -60,7 +70,7 @@ namespace assignment {
     std::swap(arr[curr_pivot_index], arr[stop]);
 
     // возвращаем индекс опорного элемента
-    return -1 /* здесь что-то не так ... */;
+    return curr_pivot_index /* здесь что-то не так ... */;
   }
 
 }  // namespace assignment
